@@ -90,6 +90,8 @@ a:hover{
 	padding-left: 15px;
 	margin-bottom: 30px;
 	font-size: 1.5rem;
+	border-left: 5px solid blue;
+	padding-left: 10px;
 }
 .product-grid{
 	display: grid;
@@ -149,14 +151,15 @@ a:hover{
 	text-align: center;
 }
 
-.category-card:hover{
-    box-shadow: 0 4px 15px #ddd;
-}
+
 .category-card img{
     width:90px;
 	border-radius: 50%;
     height: auto;
     margin-bottom: 15px;
+}
+.category-card img:hover{
+	box-shadow: 0 4px 15px dodgerblue;
 }
 .category-card h3{
     font-size:1rem;

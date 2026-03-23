@@ -1,0 +1,79 @@
+@charset "UTF-8";
+body{
+font-family: Arial;
+background:#f3f3f3;
+}
+
+.container{
+width:1000px;
+margin:auto;
+background:white;
+padding:30px;
+}
+
+.product{
+display:flex;
+gap:40px;
+}
+
+.product-image img{
+width:400px;
+}
+
+.gallery{
+margin-top:10px;
+}
+
+.gallery img{
+width:80px;
+margin-right:10px;
+cursor:pointer;
+}
+
+.price{
+margin:10px 0;
+}
+
+.price .new{
+color:red;
+font-size:26px;
+margin-right:10px;
+}
+
+.price .old{
+text-decoration:line-through;
+color:gray;
+}
+
+.option{
+margin:10px 0;
+}
+
+.btn{
+background:orange;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:6px;
+font-size:16px;
+cursor:pointer;
+}
+
+.spec{
+width:100%;
+border-collapse:collapse;
+}
+
+.spec td{
+border:1px solid #ddd;
+padding:10px;
+}
+
+.related{
+display:flex;
+gap:20px;
+}
+
+.card img{
+width:200px;
+}

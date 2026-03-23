@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>homepage-bookshop</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/homepage.css">
+	<link rel="stylesheet" href="../css/manager-prodeuct.css">
+</head>
+
+<body>
+	<div id="header"><!--header-->
+		<div class="logo float-left"> <!--log0-->
+			<img src="../img/logo-abc.png" width="100px">
+		</div>
+		<div class="menu float-left">
+			<ul>
+				<li><a href="../index.html">ホーム</a></li>
+				<li><a href="../category.html">カテゴリー</a></li>
+				<li><a href="/product-new">新着アイデム</a></li>
+				<li><a href="/contact">お聞い合わせ</a></li>
+				<li><button class="btn signin">サインイン</button></li>
+				<li><button class="btn register">新規登録</button></li>
+
+			</ul>
+		</div>
+	</div>
+	<div id="content">
+		<div class="container">
+			<div class="form-center">
+				<form action="/create-product-confim" method="GET">
+
+					<h2 class="section-title">新規登録</h2>
+					<label>商品名</label>
+					<br>
+					<input name="productName" value="" placeholder="商品名を入力してください。" />
+					<br>
+					<label>商品説明</label>
+					<br>
+					<label>カテゴリ</label>
+					<br>
+					<textarea rows="10" cols="30" name="productDesc">nhieu dong</textarea>
+					<br>
+					<select>
+						<option value="1">IT</option>
+						<option value="2">数学</optionvalue="1">
+						<option value="3">英語</option>
+
+					</select>
+					<br>
+
+					<label>Featured</label>
+					<br>
+					<input type="radio" name="featured" value="yes" />Yes
+					<input type="radio" name="featured" value="yes" />No
+
+					<br>
+					<label>Featured</label>
+					<br>
+					<input type="checkbox" name="chx" value="1" />1
+					<input type="checkbox" name="chx" value="2" />2
+					<input type="checkbox" name="chx" value="3" />3
+					<input type="checkbox" name="chx" value="4" />4
+					<br>
+					<label>写真アップ</label>
+					<input type="file" name="image" value="/">
+					<br>
+					<button style="border:none;background-color: chocolate;">送信</button>
+				</form>
+			</div>
+		</div>
+
+		<footer>
+			<div id="footer">
+				<p>Copyinght © 2026 Developer by Liu</p>
+			</div>
+		</footer>
+
+</body>
+
+</html>
