@@ -22,7 +22,7 @@
     </javaClientGenerator>
 
     <!-- コードを生成するテーブルを指定 -->
-    <table  tableName="BUSINESS_TYPE"></table>
+    <table  tableName="category"></table>
 
   </context>
 </generatorConfiguration>
