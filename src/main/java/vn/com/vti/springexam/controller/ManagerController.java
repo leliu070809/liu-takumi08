@@ -39,4 +39,19 @@ public String createConfirm(
 
     return "product/createConfirm";
 }
+
+@RequestMapping("/product/create-execute")
+public String createExecute(
+    @RequestParam String productName,
+    @RequestParam String productDesc,
+    @RequestParam Integer price,
+    @RequestParam Integer categoryId,
+    @RequestParam String featured,
+    Model model
+) {
+    // Handle the final submission here
+    // You can add logic to save to database
+    model.addAttribute("message", "登録が完了しました");
+    return "product/createConfirm";
+}
 }
