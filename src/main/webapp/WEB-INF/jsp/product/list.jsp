@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- <%@include file="common/header.jsp" %>
+ <%@ include file="../common/header.jsp" %>
 
 
 	<style>
@@ -29,6 +29,7 @@
 	</style>
 		<div class="container">
 			<h2>商品管理</h2>
+			<a class="btn" href="./create">新規登録</a>
 			<table>
 				<thead>
 					<tr>
@@ -55,16 +56,16 @@
 					</tr>
 					
 				</tbody>
-			</table>
+<!--		<c:forEach items="${products}" var="c">-->
+<!--			<tr>-->
+<!--				<td>${c.id}</td>-->
+<!--				<td>${c.productName}</td>-->
+<!--				<td>${c.price}</td>-->
+<!--				<td>${c.categoryId}</td>-->
+
+<!--			</tr>-->
+<!--		</c:forEach>-->
+	</table>
 		</div>
 	</div>
-
-	<footer>
-		<div id="footer">
-			<p>Copyinght © 2026 Developer by Liu</p>
-		</div>
-	</footer>
-
-</body>
-
-</html>
+<%@ include file="../common/footer.jsp" %>

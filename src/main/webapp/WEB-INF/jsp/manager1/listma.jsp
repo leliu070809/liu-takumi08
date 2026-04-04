@@ -4,11 +4,8 @@
  <%@ include file="../common/header.jsp" %>
     
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-</head>
-<body>
-	<h1>メンバー一覧</h1>
+
+	<h1>マネージャー一覧</h1>
 	<table border="1">
 		<thead>
 			<tr>
@@ -21,7 +18,7 @@
 			</tr>
 		</thead>
 	<tbody>
-    <c:forEach items="${members}" var="c">
+    <c:forEach items="${manager1}" var="c">
         <tr>
             <td>${c.id}</td>
             <td>${c.username}</td>

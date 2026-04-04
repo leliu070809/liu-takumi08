@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../common/header.jsp"%>
+<%@include file="../common/header.jsp"%>
 
 <div id="content">
 	<div class="container">
 		<div class="form-center">
-			<form action="/manager/product/create-confirm" method="POST">
+			<form action="/manager/product/create-confirm" method="GET">
 
 				<h2 class="section-title">新規登録</h2>
 
