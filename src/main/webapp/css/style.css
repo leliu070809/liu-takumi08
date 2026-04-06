@@ -1,169 +1,559 @@
 @charset "UTF-8";
-*{
-	font-size: 16px;
-	font-family: arial;
+
+/* CSS VARIABLES  */
+:root {
+  --sakura: #F2A7BB;
+  --sakura-light: #FDE8EF;
+  --sakura-dark: #C0607A;
+  --matcha: #5A7A4A;
+  --matcha-light: #EAF2E3;
+  --wagashi: #D4874A;
+  --cream: #FDF6EE;
+  --charcoal: #2C2420;
+  --warm-gray: #7A6E68;
+  --white: #FFFFFF;
 }
-ul{ 
-	list-style: none;
+
+/* RESET*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-/*demo respnsive design*/
-@media screen and (max-width:600px){
-	ul li{
-		color: red
-	}
+
+/* NAVIGATION */
+nav {
+  background: var(--white);
+  border-bottom: 1px solid #F0E8E0;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-li{
-	display: inline-block;
-	width: 100px;
-	text-align: center;
-	padding: 5px;
+
+.nav-logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  letter-spacing: 4px;
 }
-div.menu{
-	width: 69%;
-    display: inline-block;
-    text-align: right;
-	scroll-padding-top: 23px;
-	font-size: 16px;
+/*  LOGIN & REGISTER */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px; 
 }
-div.logo{
-	width: 30%;
-    display: inline-block;
+
+.nav-actions a {
+  text-decoration: none;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 8px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+/* Login (ログイン)  */
+.nav-actions a[href*="login"] {
+  color: var(--charcoal);
+  background: ghostwhite;
+  border: 1px solid var(--sakura-light);
+}
+
+.nav-actions a[href*="login"]:hover {
+	color: var(--sakura-dark);
+	  background: #fff;
+	  border: 1.5px solid var(--sakura-dark);
+}
+
+/* Register (新規登録) */
+.nav-actions a[href*="register"] {
+  color: var(--sakura-dark);
+  background: #fff;
+  border: 1.5px solid var(--sakura-dark);
+}
+
+.nav-actions a[href*="register"]:hover {
+  background: var(--sakura-dark);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(192, 96, 122, 0.2);
+  transform: translateY(-1px);
+}
+
+.btn-login {
+  color: var(--charcoal) !important;
+}
+
+.btn-register {
+  color: var(--sakura-dark) !important;
+  border: 1.5px solid var(--sakura-dark) !important;
+}
+
+.btn-register:hover {
+  background: var(--sakura-dark) !important;
+  color: #fff !important;
+}
+
+.nav-logo span {
+  color: var(--sakura);
+}
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--warm-gray);
+  font-size: 14px;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--sakura-dark);
+}
+
+.nav-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.nav-icon {
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--charcoal);
+  transition: color 0.2s;
+}
+
+.nav-icon:hover {
+  color: var(--sakura);
+}
+
+/* BANNER SAKURA-DO (REVISED)*/
+
+#banner {
+    position: relative; 
+    width: 100%;
+    height: 600px;    
+    overflow: hidden;  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* LÀM ẢNH CHÌM */
+.banner-img {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;  
+    z-index: -1;        
+}
+
+
+#banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); 
+            
+}
+
+.banner-inner {
+    position: relative; 
+    z-index: 3;         
     text-align: center;
-	
-}
-float-left{
-	float:left;
-}
-.btn{
-	border: none;
-	padding: 8px;
-	border-radius: 6px;
-}
-button.register{
-	background-color: red;
-	color: #fff;
-	width: 100%;
-}
-button.register:hover{
-	background-color:#9a0202;
-}
-button.signin{
-	background-color: #ddd;
-	color: #000;
-	width: 100%;
-}
-button.signin:hover{
-	background-color:#000;
-	color: #fff;
-}
-#header{
-	min-height: 80px;
-}
-footer{
-	background: #444;
-	color: #ffff;
-	text-align: center;
-	padding: 30px;
-	margin-top: 50px;
-	font-size: 0.8rem;
-}
-/*#content{
-	min-height:1500px;
-}*/
-#product-fetured{
-	min-height: 800px;
-}
-a{
-	text-decoration: none;
-	color: #000;
-}
-a:hover{
-	color:#6b6b6b;
-}
-.container{
-	max-width: 1100px;
-	margin: 40px auto;
-	padding: 0 20px;
-}
-.section-title{
-	border-left: 5px solid #fff;
-	padding-left: 15px;
-	margin-bottom: 30px;
-	font-size: 1.5rem;
-	border-left: 5px solid blue;
-	padding-left: 10px;
-}
-.product-grid{
-	display: grid;
-	grid-template-columns: repeat(auto-fill,minmax(220px, 1fr));
-	gap:25px;
-} /*tu dong diu chinh cho fix voi o*/
-.product-card{
-	border: 1px solid #cccccc;
-   padding: 15px;
-   transition: 0.2s;
-   border-radius: 5px;
-}
-.product-card:hover{
-	box-shadow: 0 4px 15px #ddd;
-}
-.btn-cart{
-	background-color: #ff9900;
-	color: #fff;
-	text-align: center;
-	margin-top: 15px;
-	font-weight: bold;
-	transition: background-color 0.3s ease, opacity 0.3s ease;
-}
-.btn-cart:hover{
-	background:  rgb(255, 128, 0);
-	color:#fff;
-}
-.product-card img{
-	width: 100%;
-	height: auto;
-	margin-bottom: 15px;
-}
-.product-card h3{
-	font-size: 1rem;
-	margin: 0 0 10px 0;
-	height: 3.4rem;
-	overflow: hidden;
-}
-.price{
-	color: #d0021b;
-	font-weight: bold;
-	font-size: 1,2rem;
-	
-}
-/* CATEGORY HOMEPAGE*/
-.category-grid{
-    display:grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap:25px;
-}
-
-.category-card{
-   /* border: 1px solid #cccccc;*/
-    padding: 15px;
-    transition: 0.2s;
-    border-radius: 5px;
-	text-align: center;
+    color: #FFFFFF;     
+    max-width: 800px;
+    padding: 0 20px;
 }
 
 
-.category-card img{
-    width:90px;
-	border-radius: 50%;
-    height: auto;
+.banner-tag {
+    display: inline-block;
+    background: #C0607A; 
+    color: white;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.4;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+}
+
+.desc {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    opacity: 0.9;
+}
+
+
+.btn-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #C0607A;
+    color: white;
+}
+
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+/* BUTTONS  */
+.btn-group {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 38px;
+  border-radius: 40px;
+  font-family: 'Zen Maru Gothic', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.btn-primary {
+  background: var(--sakura);
+  color: var(--white);
+  border-color: var(--sakura);
+}
+
+.btn-primary:hover {
+  background: var(--sakura-dark);
+  border-color: var(--sakura-dark);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--matcha);
+  border-color: var(--matcha);
+}
+
+.btn-outline:hover {
+  background: var(--matcha);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* LAYOUT UTILITIES */
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* FEATURES SECTION */
+#features {
+  padding: 60px 0;
+  background: var(--sakura-light);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 32px;
+  text-align: center;
+}
+
+.feature-item h4 {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1rem;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.feature-item p {
+  font-size: 0.82rem;
+  color: var(--warm-gray);
+  line-height: 1.8;
+}
+
+/* SECTION HEADER */
+.section-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  text-align: center;
+  margin-bottom: 8px;
+  letter-spacing: 4px;
+}
+
+.section-sub {
+  text-align: center;
+  color: var(--warm-gray);
+  font-size: 0.85rem;
+  margin-bottom: 48px;
+  letter-spacing: 1px;
+}
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.section-divider span {
+  color: var(--sakura);
+  font-size: 20px;
+}
+
+.section-divider::before,
+.section-divider::after {
+  content: '';
+  width: 60px;
+  height: 1px;
+  background: var(--sakura);
+  opacity: 0.5;
+}
+
+/*PRODUCT SECTION*/
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative; 
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%; 
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.img-wrap {
+    width: 100%;
+    height: 220px; 
+    overflow: hidden;
+    background-color: #fce4ec; 
+}
+
+.img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .img-wrap img {
+    transform: scale(1.1);
+}
+
+
+.badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #C0607A; 
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-body h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-family: 'Noto Serif JP', serif;
+}
+
+.desc-small {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.price {
+    font-size: 1.3rem;
+    color: #C0607A;
+    font-weight: bold;
     margin-bottom: 15px;
 }
-.category-card img:hover{
-	box-shadow: 0 4px 15px dodgerblue;
+
+/* 5. Nút giỏ hàng */
+.btn-cart {
+    display: block;
+    background: #333; 
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: background 0.3s;
 }
-.category-card h3{
-    font-size:1rem;
-    margin: 0 0 10px 0;
-    height: 2.4em;
-    overflow: hidden;
+
+.btn-cart:hover {
+    background: #C0607A; 
+    color: white;
+}
+
+/* CATEGORY SECTION*/
+#categories-featured {
+  padding: 80px 0;
+  background: var(--cream);
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.category-card {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  height: 200px;
+  transition: all 0.3s ease;
+  background: var(--sakura-light);
+}
+
+.category-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+}
+
+.category-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.category-card:hover img {
+  transform: scale(1.08);
+}
+
+.category-card .cat-label {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(44, 36, 32, 0.85));
+  padding: 30px 18px 18px;
+  color: var(--white);
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* ===== FOOTER ===== */
+.footer-logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2.2rem; 
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3); 
+}
+
+
+.footer-logo span { 
+  color: var(--sakura); 
+  filter: brightness(1.2); 
+}
+
+.footer-tagline {
+  font-size: 1.1rem; 
+  color: rgba(255, 255, 255, 0.9); 
+  line-height: 2.2; 
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+#footer {
+  margin-top: auto; 
+  background: var(--charcoal);
+  width: 100%;
+}
+
+/*  Copyright */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 25px 0;
+  color: #FFFFFF; 
+  font-size: 0.9rem;
+  text-align: right;
 }
