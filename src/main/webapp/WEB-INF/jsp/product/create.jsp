@@ -34,12 +34,7 @@
 	</div>
 </div>
 
-<footer>
-	<div id="footer">
-		<p>Copyinght © 2026 Developer by Liu</p>
-	</div>
-</footer>
-
 </body>
 
 </html>
+<%@ include file="../common/footer.jsp"%>

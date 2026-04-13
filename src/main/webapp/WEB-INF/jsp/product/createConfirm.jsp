@@ -1,27 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="../common/header.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div id="content">
     <div class="container">
         <div class="from-center">
+<!--        <c:out value='${param.productName}'/>-->
+        
             <form action="/manager/product/insert" method="POST">
                 <h2 class="section-title">新規登録 (確認)</h2>
 
                 <label>商品名</label><br>
              
-                <input type="text" value="${productName}" readonly="readonly" />
+                <input type="text" value="<c:out value='${param.productName}'/>" readonly="readonly" />
                 <input type="hidden" name="productName" value="${productName}" /><br><br>
 
                 <label>商品説明</label><br>
                 
                 <textarea readonly="readonly" rows="5" cols="30">${productDesc}</textarea>
-                <input type="hidden" name="productDesc" value="${productDesc}" /><br><br>
+                <input type="hidden" name="productDesc" value="<c:out value='${param.productDesc}'/>" /><br><br>
 
                 <label>価格</label><br>
                 
                 <input type="number" value="${price}" readonly="readonly" />
-                <input type="hidden" name="price" value="${price}" /><br><br>
+                <input type="hidden" name="price" value="<c:out value='${param.price}'/>" /><br><br>
 
                 <label>カテゴリ</label><br>
                 

@@ -12,6 +12,8 @@
 </head>
 <body>
 	<h1>カテゴリ一覧画面</h1>
+	<a class="btn" href="./create">新規登録</a>
+	
 	<table border="1">
 		<thead>
 			<tr>
@@ -21,8 +23,11 @@
 			</tr>
 		</thead>
 	<tbody>
+	<style>
+	.red{color:red}
+	</style>
     <c:forEach items="${categories}" var="c">
-        <tr>
+        <tr <c:if test='${c.id>2}' > class= "red" </c:if> >
             <td>${c.id}</td>
             <td>${c.categoryName}</td>
             <td>${c.categoryDesc}</td>

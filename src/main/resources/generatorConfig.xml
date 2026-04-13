@@ -26,6 +26,9 @@
     <table  tableName="manager"></table>
     <table  tableName="product"></table>
     <table  tableName="category"></table>
+    <table  tableName="order_header"></table>
+    <table  tableName="order_detail"></table>
+    <table  tableName="supplier"></table>
 <!--mybatis-generator:generate-->
   </context>
 </generatorConfiguration>

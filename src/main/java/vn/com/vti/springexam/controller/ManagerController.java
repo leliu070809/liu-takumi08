@@ -1,5 +1,8 @@
 package vn.com.vti.springexam.controller;
 
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import vn.com.vti.springexam.entity.Product;
+import vn.com.vti.springexam.entity.ProductExample;
 import vn.com.vti.springexam.mapper.ProductMapper;
 
 @Controller
@@ -25,9 +29,13 @@ public class ManagerController {
 
     @RequestMapping("/product/list")
     public String list(Model model) {
-//    	ProductExample productExample = new ProductExample();
-//    	List<Product> productList = productMapper.selectByExample(productExample);
-        model.addAttribute("title", "Homepage-Thông tin sản phẩm");
+    	ProductExample productExample = new ProductExample();
+        List<Product> productList = productMapper.selectByExample(productExample);
+    	Date date = new Date();
+    	model.addAttribute("date", date);
+    	 model.addAttribute("products", productList);
+        
+    	model.addAttribute("title", "Homepage-Thông tin sản phẩm");
         return "product/list";
     }
 
@@ -44,7 +52,7 @@ public class ManagerController {
         @RequestParam String productDesc,
         @RequestParam Integer price,
         @RequestParam Integer categoryId,
-        @RequestParam(required = false) String featured, // ← nullable nếu form không gửi
+//        @RequestParam(required = false) String featured, // ← nullable nếu form không gửi
         Model model
     ) {
         model.addAttribute("productName", productName);
@@ -52,9 +60,9 @@ public class ManagerController {
         model.addAttribute("price", price);
         model.addAttribute("categoryId", categoryId);
 
-        if (featured != null) {
-            model.addAttribute("featured", featured);
-        }
+//        if (featured != null) {
+//            model.addAttribute("featured", featured);
+//        }
 
         return "product/createConfirm";
     }
