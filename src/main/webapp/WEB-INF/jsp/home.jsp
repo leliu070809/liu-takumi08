@@ -68,7 +68,7 @@
               <h3>${p.productName}</h3>
               <p class="desc-small">${p.description}</p>
               <p class="price">￥${p.price}</p>
-              <a href="cart?action=add&id=${p.id}" class="btn-cart">🛒 カートに入れる</a>
+              <a href="cart?action=add&id=${p.id}" class="btn-cart">カートに入れる</a>
             </div>
           </div>
       </c:forEach>
