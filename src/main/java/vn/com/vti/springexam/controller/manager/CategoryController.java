@@ -1,4 +1,4 @@
-package vn.com.vti.springexam.controller;
+package vn.com.vti.springexam.controller.manager;
 
 import java.util.List;
 

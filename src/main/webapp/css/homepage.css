@@ -21,5 +21,26 @@ div#banner{
 	font-size: 20px;
 	margin:0
 }
+.lang-switcher {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
 
+.lang-switcher a {
+  text-decoration: none;
+  color: #333333;
+  font-weight: 500;
+  padding: 4px 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+.lang-switcher a:hover {
+  background: var(--pink-deep, #E8829A);
+  color: #ffffff;
+  border-color: var(--pink-deep, #E8829A);
+}
 
