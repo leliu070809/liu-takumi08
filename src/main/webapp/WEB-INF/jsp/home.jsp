@@ -48,51 +48,48 @@
 
     <div class="product-grid">
 
-      <c:forEach items="${products}" var="p">
-        <div class="product-card">
-          <div class="img-wrap">
-            <img src="${not empty p.imageUrl ? p.imageUrl : 'img/default.jpg'}"
-                 alt="${p.productName}"
-                 onerror="this.src='img/wagashi.jpg'"/>
-          </div>
-          <div class="card-body">
-            <h3>${p.productName}</h3>
-            <p class="desc-small">${p.productDesc}</p>
-           <p class="price">￥<fmt:formatNumber value="${p.price}" pattern="#,###"/></p>
-            <a href="${pageContext.request.contextPath}/cart/add?productId=${p.id}" class="btn-cart">カートに入れる</a>
-          </div>
-        </div>
-      </c:forEach>
+  <c:forEach items="${products}" var="p">
+    <div class="product-card">
+      <div class="img-wrap">
+        <img src="${pageContext.request.contextPath}/${p.imageUrl}"
+             alt="${p.productName}"
+             onerror="this.onerror=null; this.src='${pageContext.request.contextPath}/img/wagashi.jpg'"/>
+      </div>
+     <div class="card-body">
+    <h3><c:out value="${p.productName}"/></h3>
+    <p class="desc-small"><c:out value="${p.productDesc}"/></p>
+    <p class="price">￥<fmt:formatNumber value="${p.price}" pattern="#,###"/></p>
 
-      <c:if test="${empty products}">
-        <p style="text-align:center; color:#888; width:100%;">商品がありません。</p>
-      </c:if>
-
+    <button class="btn-cart" onclick="addToCart(${p.id})">カートに入れる</button>
+</div>
     </div>
+  </c:forEach>
+
+<!--  <c:if test="${empty products}">-->
+<!--    <p style="text-align:center; color:#888; width:100%;">商品がありません。</p>-->
+<!--  </c:if>-->
+
+</div>
   </div>
 </div>
-      <script>
+<script>
 function addToCart(productId) {
     fetch('/cart/add', {
         method: 'POST',
-        body: JSON.stringify({
-            productId: productId
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        }
+        body: JSON.stringify({ productId: productId }),
+        headers: { 'Content-Type': 'application/json' }
     })
     .then(response => response.text())
-    .then(result => console.log(result))
+    .then(result => {
+        const data = JSON.parse(result);
+        alert(data.status);
+        document.getElementById('cartCount').textContent = data.cartSize;
+    })
     .catch(err => console.error("loi: ", err));
 }
 </script>
 
-      <c:if test="${empty products}">
-        <p style="text-align:center; color:#888; width:100%;">商品がありません。</p>
-      </c:if>
-
-    </div>
+</div>
   </div>
 </div>
 

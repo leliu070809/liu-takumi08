@@ -30,10 +30,10 @@
 
     <!-- cart tu hien thi so luong -->
     <li>
-      <a href="${pageContext.request.contextPath}/cart/list">
-        🛒<spring:message code="nav.cart"/>（${fn:length(cartDto.productList)}）
-      </a>
-    </li>
+  <a href="${pageContext.request.contextPath}/cart/list">
+    🛒<spring:message code="nav.cart"/>（<span id="cartCount">${fn:length(cartDto.productList)}</span>）
+  </a>
+</li>
 
     <!-- logged -->
     <sec:authorize access="hasRole('ROLE_MEMBER')">

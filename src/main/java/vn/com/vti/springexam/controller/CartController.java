@@ -1,11 +1,15 @@
 package vn.com.vti.springexam.controller;
 
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import vn.com.vti.springexam.dao.CartStatus;
 import vn.com.vti.springexam.dto.CartDto;
 import vn.com.vti.springexam.entity.Product;
 import vn.com.vti.springexam.mapper.ProductMapper;
@@ -19,20 +23,16 @@ public class CartController {
 
     @Autowired
     private CartDto cartDto;
-
-    @RequestMapping("/add")
-    public String add(@RequestParam Integer productId,
-                      RedirectAttributes redirectAttributes) {
+    @PostMapping("/add")
+    @ResponseBody
+    public CartStatus add(@RequestBody Map<String, Object> payload) {
+        Integer productId = Integer.valueOf(payload.get("productId").toString());
         Product product = productMapper.selectByPrimaryKey(productId);
-        if (product != null) {
-            cartDto.getProductList().add(product);
-        }
-        redirectAttributes.addFlashAttribute("msg", "カートに追加しました。");
-        return "redirect:/home";
-    }
+        cartDto.getProductList().add(product);
 
-    @RequestMapping("/list")
-    public String list() {
-        return "cart/list";
+        CartStatus cartStatus = new CartStatus();
+        cartStatus.setCartSize(cartDto.getProductList().size());
+        cartStatus.setStatus("カートに追加しました。");
+        return cartStatus;
     }
 }
